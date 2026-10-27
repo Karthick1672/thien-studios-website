@@ -1,0 +1,1131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#080910" />
+    <meta
+      name="description"
+      content="THIEN STUDIOS is an independent digital studio creating software, mobile applications, games, and interactive experiences."
+    />
+
+    <title>THIEN STUDIOS — Digital Experiences, Designed to Evolve</title>
+
+    <style>
+      :root {
+        --bg: #080910;
+        --surface: #10121c;
+        --surface-light: #171a27;
+        --text: #f6f5ff;
+        --muted: #a1a5b7;
+        --accent: #b4a0ff;
+        --accent-blue: #7e91ff;
+        --border: rgba(255, 255, 255, 0.1);
+        --max-width: 1160px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 90px;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: Inter, "Segoe UI", Arial, sans-serif;
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button {
+        font: inherit;
+      }
+
+      .container {
+        width: min(var(--max-width), calc(100% - 40px));
+        margin: auto;
+      }
+
+      /* Navigation */
+
+      .header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(8, 9, 16, 0.85);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .navbar {
+        min-height: 78px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 0.95rem;
+        font-weight: 800;
+        letter-spacing: 0.15em;
+        white-space: nowrap;
+      }
+
+      .brand-mark {
+        display: grid;
+        place-items: center;
+        width: 38px;
+        height: 38px;
+        border: 1px solid rgba(180, 160, 255, 0.55);
+        border-radius: 12px;
+        color: var(--accent);
+        background: linear-gradient(
+          135deg,
+          rgba(180, 160, 255, 0.18),
+          rgba(126, 145, 255, 0.03)
+        );
+        font-size: 1.1rem;
+        letter-spacing: 0;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+      }
+
+      .nav-links a {
+        color: var(--muted);
+        font-size: 0.88rem;
+        transition: color 0.25s;
+      }
+
+      .nav-links a:hover {
+        color: var(--text);
+      }
+
+      .nav-cta,
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 12px 19px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        font-size: 0.88rem;
+        font-weight: 700;
+        transition: 0.25s ease;
+        cursor: pointer;
+      }
+
+      .nav-cta:hover,
+      .button:hover {
+        transform: translateY(-2px);
+        border-color: var(--accent);
+      }
+
+      .button.primary {
+        color: #11101a;
+        background: var(--text);
+        border-color: var(--text);
+      }
+
+      .button.primary:hover {
+        background: var(--accent);
+        border-color: var(--accent);
+      }
+
+      .menu-toggle {
+        display: none;
+        color: var(--text);
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 8px 13px;
+        cursor: pointer;
+      }
+
+      /* Hero */
+
+      .hero {
+        min-height: 690px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        border-bottom: 1px solid var(--border);
+        background:
+          radial-gradient(
+            ellipse at 78% 20%,
+            rgba(126, 103, 255, 0.2),
+            transparent 38%
+          ),
+          radial-gradient(
+            ellipse at 15% 75%,
+            rgba(62, 103, 190, 0.13),
+            transparent 35%
+          ),
+          var(--bg);
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+          linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.035) 1px,
+            transparent 1px
+          );
+        background-size: 65px 65px;
+        mask-image: linear-gradient(to bottom, black, transparent 90%);
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        padding: 90px 0;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--accent);
+        font-size: 0.76rem;
+        font-weight: 800;
+        letter-spacing: 0.17em;
+        text-transform: uppercase;
+      }
+
+      .status-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 14px var(--accent);
+      }
+
+      .hero h1 {
+        max-width: 950px;
+        margin: 28px 0;
+        font-size: clamp(3.3rem, 8vw, 7rem);
+        line-height: 1;
+        letter-spacing: -0.075em;
+        font-weight: 800;
+      }
+
+      .gradient-text {
+        color: var(--accent);
+        background: linear-gradient(100deg, #ffffff, #c5baff 48%, #899aff);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .hero-description {
+        max-width: 650px;
+        color: var(--muted);
+        font-size: 1.1rem;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 13px;
+        margin-top: 34px;
+      }
+
+      .hero-footer {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 18px;
+        margin-top: 85px;
+        padding-top: 22px;
+        border-top: 1px solid var(--border);
+        color: #888da0;
+        font-size: 0.73rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      /* General sections */
+
+      section {
+        padding: 100px 0;
+      }
+
+      .section-label {
+        margin-bottom: 13px;
+        color: var(--accent);
+        font-size: 0.75rem;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .section-heading {
+        font-size: clamp(2.2rem, 5vw, 3.8rem);
+        line-height: 1.1;
+        letter-spacing: -0.06em;
+      }
+
+      .section-description {
+        max-width: 500px;
+        color: var(--muted);
+        margin-top: 18px;
+      }
+
+      .section-header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 30px;
+        margin-bottom: 42px;
+      }
+
+      /* About */
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 70px;
+        margin-top: 38px;
+      }
+
+      .about-statement {
+        font-size: clamp(1.45rem, 3vw, 2.1rem);
+        line-height: 1.5;
+        letter-spacing: -0.035em;
+      }
+
+      .about-statement span {
+        color: var(--muted);
+      }
+
+      .values-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+
+      .value {
+        padding-top: 16px;
+        border-top: 1px solid var(--border);
+      }
+
+      .value h3 {
+        margin-bottom: 5px;
+        font-size: 0.98rem;
+      }
+
+      .value p {
+        color: var(--muted);
+        font-size: 0.87rem;
+      }
+
+      /* Services */
+
+      .services-section {
+        background: #0d0f17;
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+
+      .service-card {
+        min-height: 235px;
+        padding: 27px;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        background: linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.045),
+          rgba(255, 255, 255, 0.01)
+        );
+        transition:
+          transform 0.25s,
+          border-color 0.25s;
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(180, 160, 255, 0.5);
+      }
+
+      .service-icon {
+        display: grid;
+        place-items: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 13px;
+        border: 1px solid rgba(180, 160, 255, 0.25);
+        color: var(--accent);
+        background: rgba(180, 160, 255, 0.07);
+        font-size: 1.2rem;
+      }
+
+      .service-card h3 {
+        margin: 23px 0 9px;
+        font-size: 1.1rem;
+      }
+
+      .service-card p {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      /* Projects */
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+
+      .project-card {
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        background: var(--surface);
+        transition:
+          transform 0.25s,
+          border-color 0.25s;
+      }
+
+      .project-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(180, 160, 255, 0.45);
+      }
+
+      .project-art {
+        min-height: 170px;
+        display: grid;
+        place-items: center;
+        position: relative;
+        overflow: hidden;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .project-art::before,
+      .project-art::after {
+        content: "";
+        position: absolute;
+        width: 190px;
+        height: 190px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 50%;
+      }
+
+      .project-art::after {
+        width: 125px;
+        height: 125px;
+      }
+
+      .project-art.one {
+        background: radial-gradient(circle, #34305c, #121321 72%);
+      }
+
+      .project-art.two {
+        background: radial-gradient(circle, #3b2b58, #171321 72%);
+      }
+
+      .project-art.three {
+        background: radial-gradient(circle, #24415b, #101721 72%);
+      }
+
+      .project-symbol {
+        z-index: 1;
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: #eeeaff;
+      }
+
+      .project-content {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        padding: 24px;
+      }
+
+      .project-type {
+        color: var(--accent);
+        font-size: 0.72rem;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+      }
+
+      .project-content h3 {
+        margin: 9px 0;
+        font-size: 1.2rem;
+      }
+
+      .project-content p {
+        margin-bottom: 20px;
+        color: var(--muted);
+        font-size: 0.88rem;
+      }
+
+      .project-status {
+        margin-top: auto;
+        color: #a5a9b8;
+        font-size: 0.77rem;
+      }
+
+      /* Process */
+
+      .process-section {
+        background: linear-gradient(180deg, #0d0f17, #080910);
+        border-block: 1px solid var(--border);
+      }
+
+      .process-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 22px;
+        margin-top: 42px;
+      }
+
+      .process-step {
+        padding-top: 18px;
+        border-top: 1px solid var(--border);
+      }
+
+      .process-number {
+        color: var(--accent);
+        font-size: 0.75rem;
+        letter-spacing: 0.14em;
+      }
+
+      .process-step h3 {
+        margin: 12px 0 8px;
+        font-size: 1rem;
+      }
+
+      .process-step p {
+        color: var(--muted);
+        font-size: 0.88rem;
+      }
+
+      /* Contact */
+
+      .contact-panel {
+        padding: clamp(30px, 6vw, 65px);
+        border: 1px solid rgba(180, 160, 255, 0.25);
+        border-radius: 24px;
+        background:
+          radial-gradient(
+            ellipse at 100% 0%,
+            rgba(126, 103, 255, 0.18),
+            transparent 45%
+          ),
+          var(--surface);
+      }
+
+      .contact-panel h2 {
+        max-width: 700px;
+        margin-bottom: 17px;
+      }
+
+      .contact-panel p {
+        max-width: 650px;
+        color: var(--muted);
+      }
+
+      .contact-panel .button {
+        margin-top: 27px;
+      }
+
+      /* Footer */
+
+      footer {
+        padding: 30px 0;
+        border-top: 1px solid var(--border);
+      }
+
+      .footer-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 22px;
+      }
+
+      .footer-note,
+      .copyright {
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .footer-links a {
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+
+      .footer-links a:hover {
+        color: var(--text);
+      }
+
+      .copyright {
+        margin-top: 23px;
+        font-size: 0.75rem;
+      }
+
+      /* Subtle entrance animation */
+
+      @keyframes fade-up {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .hero-content > * {
+        animation: fade-up 0.7s ease both;
+      }
+
+      .hero-content > *:nth-child(2) {
+        animation-delay: 0.08s;
+      }
+
+      .hero-content > *:nth-child(3) {
+        animation-delay: 0.16s;
+      }
+
+      .hero-content > *:nth-child(4) {
+        animation-delay: 0.24s;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+
+      /* Responsive layout */
+
+      @media (max-width: 900px) {
+        .nav-links {
+          gap: 16px;
+        }
+
+        .services-grid,
+        .projects-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .about-grid {
+          gap: 35px;
+        }
+
+        .process-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 650px) {
+        .container {
+          width: calc(100% - 32px);
+        }
+
+        .navbar {
+          min-height: 70px;
+        }
+
+        .menu-toggle {
+          display: block;
+        }
+
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 70px;
+          left: 0;
+          right: 0;
+          padding: 22px;
+          background: #0c0d15;
+          border-bottom: 1px solid var(--border);
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .nav-links.open {
+          display: flex;
+        }
+
+        .nav-cta {
+          display: none;
+        }
+
+        .hero {
+          min-height: auto;
+        }
+
+        .hero-content {
+          padding: 80px 0 55px;
+        }
+
+        .hero h1 {
+          font-size: clamp(3rem, 14vw, 5rem);
+        }
+
+        .hero-description {
+          font-size: 1rem;
+        }
+
+        .hero-footer {
+          margin-top: 60px;
+        }
+
+        .hero-footer span:last-child {
+          display: none;
+        }
+
+        section {
+          padding: 72px 0;
+        }
+
+        .section-header {
+          display: block;
+        }
+
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+
+        .services-grid,
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .service-card {
+          min-height: auto;
+        }
+
+        .process-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 25px 16px;
+        }
+
+        .footer-top {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container navbar">
+        <a class="brand" href="#home" aria-label="THIEN STUDIOS home">
+          <span class="brand-mark">T</span>
+          <span>THIEN STUDIOS</span>
+        </a>
+
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          aria-expanded="false"
+          aria-controls="navLinks"
+          aria-label="Toggle navigation"
+        >
+          Menu
+        </button>
+
+        <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+          <a href="#about">Studio</a>
+          <a href="#services">Capabilities</a>
+          <a href="#projects">Projects</a>
+          <a href="#process">Our approach</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <a class="nav-cta" href="#contact">
+          Let's connect <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="container hero-content">
+          <div class="eyebrow">
+            <span class="status-dot"></span>
+            Independent digital studio · India
+          </div>
+
+          <h1>
+            Ideas into<br />
+            <span class="gradient-text">digital experiences.</span>
+          </h1>
+
+          <p class="hero-description">
+            THIEN STUDIOS is an independent studio focused on software, mobile
+            applications, games, and original interactive experiences. We turn
+            ideas into useful digital products through thoughtful design,
+            development, and continuous improvement.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button primary" href="#projects">
+              Explore our projects <span aria-hidden="true">↘</span>
+            </a>
+            <a class="button" href="#about">Discover the studio</a>
+          </div>
+
+          <div class="hero-footer">
+            <span>Software & product development</span>
+            <span>Independent by design</span>
+            <span>Made in India · Built for everywhere</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="container">
+          <div class="section-label">01 / About the studio</div>
+
+          <div class="section-header">
+            <h2 class="section-heading">
+              Small studio.<br />
+              Ambitious ideas.
+            </h2>
+
+            <p class="section-description">
+              We explore ideas, design digital products, and develop experiences
+              for people who use technology every day. Our work is guided by
+              curiosity, practical problem-solving, and a commitment to
+              continuous learning.
+            </p>
+          </div>
+
+          <div class="about-grid">
+            <p class="about-statement">
+              Curiosity starts the process.
+              <span>
+                Clear thinking, considered design, and consistent iteration help
+                turn an idea into something people can use.
+              </span>
+            </p>
+
+            <div class="values-grid">
+              <article class="value">
+                <h3>Purpose first</h3>
+                <p>Build around real needs and useful outcomes.</p>
+              </article>
+
+              <article class="value">
+                <h3>Craft matters</h3>
+                <p>Pay attention to the details people experience.</p>
+              </article>
+
+              <article class="value">
+                <h3>Keep learning</h3>
+                <p>Improve through testing, feedback, and iteration.</p>
+              </article>
+
+              <article class="value">
+                <h3>Think long term</h3>
+                <p>Create foundations that can grow with an idea.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="services-section" id="services">
+        <div class="container">
+          <div class="section-label">02 / What we do</div>
+
+          <div class="section-header">
+            <h2 class="section-heading">
+              Technology meets<br />
+              imagination.
+            </h2>
+
+            <p class="section-description">
+              A flexible development practice for exploring, creating, and
+              improving digital experiences.
+            </p>
+          </div>
+
+          <div class="services-grid">
+            <article class="service-card">
+              <div class="service-icon" aria-hidden="true">⌘</div>
+              <h3>Software & web</h3>
+              <p>
+                Websites, web applications, and practical digital tools designed
+                around usability and reliability.
+              </p>
+            </article>
+
+            <article class="service-card">
+              <div class="service-icon" aria-hidden="true">▣</div>
+              <h3>Mobile applications</h3>
+              <p>
+                Mobile experiences that bring product ideas into people's
+                everyday lives.
+              </p>
+            </article>
+
+            <article class="service-card">
+              <div class="service-icon" aria-hidden="true">✳</div>
+              <h3>Games & interactive</h3>
+              <p>
+                Original game concepts and interactive worlds developed through
+                creative experimentation.
+              </p>
+            </article>
+
+            <article class="service-card">
+              <div class="service-icon" aria-hidden="true">◇</div>
+              <h3>Product design</h3>
+              <p>
+                User flows, interface systems, prototypes, and the details that
+                make a product feel cohesive.
+              </p>
+            </article>
+
+            <article class="service-card">
+              <div class="service-icon" aria-hidden="true">↗</div>
+              <h3>Prototyping</h3>
+              <p>
+                Test ideas early, learn what works, and make informed decisions
+                before investing further.
+              </p>
+            </article>
+
+            <article class="service-card">
+              <div class="service-icon" aria-hidden="true">∞</div>
+              <h3>Continuous improvement</h3>
+              <p>
+                Refine products with attention to performance, usability, and
+                future requirements.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="container">
+          <div class="section-label">03 / Selected projects</div>
+
+          <div class="section-header">
+            <h2 class="section-heading">Ideas in progress.</h2>
+
+            <p class="section-description">
+              A selection of projects and experiments connected with the studio.
+              Their status may change as development progresses.
+            </p>
+          </div>
+
+          <div class="projects-grid">
+            <article class="project-card">
+              <div class="project-art one">
+                <span class="project-symbol">JN.</span>
+              </div>
+
+              <div class="project-content">
+                <div class="project-type">Web platform</div>
+                <h3>JobNest</h3>
+                <p>
+                  A job discovery platform focused on connecting job seekers
+                  with opportunities and career resources.
+                </p>
+                <div class="project-status">Independent project</div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-art two">
+                <span class="project-symbol">L /</span>
+              </div>
+
+              <div class="project-content">
+                <div class="project-type">AI product concept</div>
+                <h3>LOKYN</h3>
+                <p>
+                  An exploration of an AI-powered creative application and its
+                  user experience.
+                </p>
+                <div class="project-status">Concept & development</div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-art three">
+                <span class="project-symbol">✦</span>
+              </div>
+
+              <div class="project-content">
+                <div class="project-type">Game development</div>
+                <h3>Snowman Wizard</h3>
+                <p>
+                  An original endless-runner game concept featuring a magical
+                  snowman, hazards, and a playful world.
+                </p>
+                <div class="project-status">Game prototype</div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="process-section" id="process">
+        <div class="container">
+          <div class="section-label">04 / Our approach</div>
+
+          <div class="section-header">
+            <h2 class="section-heading">
+              From first thought<br />
+              to better products.
+            </h2>
+
+            <p class="section-description">
+              A clear, repeatable process keeps creative ambition connected to
+              practical progress.
+            </p>
+          </div>
+
+          <div class="process-grid">
+            <article class="process-step">
+              <div class="process-number">STEP 01</div>
+              <h3>Explore</h3>
+              <p>Understand the idea, audience, and opportunity.</p>
+            </article>
+
+            <article class="process-step">
+              <div class="process-number">STEP 02</div>
+              <h3>Shape</h3>
+              <p>Map the experience and choose a practical direction.</p>
+            </article>
+
+            <article class="process-step">
+              <div class="process-number">STEP 03</div>
+              <h3>Build</h3>
+              <p>Create, test, learn, and improve in focused iterations.</p>
+            </article>
+
+            <article class="process-step">
+              <div class="process-number">STEP 04</div>
+              <h3>Evolve</h3>
+              <p>Use feedback and evidence to guide what comes next.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="container">
+          <div class="contact-panel">
+            <div class="section-label">05 / Get in touch</div>
+
+            <h2 class="section-heading">Have an idea worth building?</h2>
+
+            <p>
+              THIEN STUDIOS is interested in thoughtful digital products,
+              creative collaborations, and new ideas. For enquiries, use the
+              official contact details published on our verified business or
+              developer profiles.
+            </p>
+
+            <a class="button primary" href="#home">
+              Back to top <span aria-hidden="true">↑</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-top">
+          <a class="brand" href="#home">
+            <span class="brand-mark">T</span>
+            <span>THIEN STUDIOS</span>
+          </a>
+
+          <div class="footer-note">Independent digital studio · India</div>
+
+          <nav class="footer-links" aria-label="Footer navigation">
+            <a href="#about">Studio</a>
+            <a href="#services">Capabilities</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </div>
+
+        <p class="copyright">
+          © <span id="year">2026</span> THIEN STUDIOS. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      const menuToggle = document.getElementById("menuToggle");
+      const navLinks = document.getElementById("navLinks");
+
+      menuToggle.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("open");
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      navLinks.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("open");
+          menuToggle.setAttribute("aria-expanded", "false");
+        });
+      });
+
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
